@@ -1,0 +1,16 @@
+module eightbit_adder(
+    input [7:0] a,
+    input [7:0] b,
+    output [7:0] f,
+    output ovf
+    );
+    
+    assign f = a + b;
+    
+    wire sa = a[7];
+    wire sb = b[7];
+    wire sf = f[7];
+    
+    assign ovf = sa != sb ? 0:
+                 sb == sf ? 0:1;
+endmodule

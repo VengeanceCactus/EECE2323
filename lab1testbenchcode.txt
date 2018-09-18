@@ -1,0 +1,28 @@
+// testbench Lab1 8-bit adder template
+`timescale 1 ns / 10 ps
+
+module adder_unit_tb ();
+    reg signed [7:0] a;
+    reg signed [7:0] b;
+    wire signed [7:0] f;
+    wire ovf;
+   
+    eightbit_adder uut (
+        .a(a), 
+        .b(b), 
+        .f(f), 
+        .ovf(ovf));
+
+	 // Write your test vectors      
+     initial
+      begin
+       a = 8'd0; b = 8'd0; #10;
+       a = 8'd4; b = 8'd3; #10;
+       a = -8'd121; b = 8'd7; #10;
+       a = 8'd100; b = 8'd100; #10;
+       a = -8'd69; b = -8'd115; #10;
+       a = 8'd32; b = 8'd16; #10;
+
+      end
+     
+endmodule
